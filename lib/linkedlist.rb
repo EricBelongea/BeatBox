@@ -24,6 +24,7 @@ class LinkedList
         if current == nil
             counter = 0
         else
+            current = @head
             until current == nil do
                 current = current.next_node
                 counter += 1
@@ -33,6 +34,17 @@ class LinkedList
     end
 
     def to_string
-        @head.data.to_s
+        current = @head.data
+
+        if current == nil
+            " "
+        else
+            current = @head
+            until current == nil do
+                current = current.next_node
+                ""
+            end
+        end
+        string
     end
 end

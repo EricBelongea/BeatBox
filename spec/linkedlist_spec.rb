@@ -68,11 +68,11 @@ RSpec.describe LinkedList do
         expect(list.count).to eq(2)
     end
 
-    xit 'can covert nodes to strings' do
+    it 'can covert nodes to strings' do
         list = LinkedList.new
         list.append("yup")
         list.append("cup")
-
+        # binding.pry 
         expect(list.to_string).to eq("yup cup")
     end
 end
