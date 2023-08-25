@@ -1,5 +1,5 @@
-require '../lib/node'
-require '../lib/linkedlist'
+require './lib/node'
+require './lib/linkedlist'
 require 'pry'
 
 RSpec.describe LinkedList do
@@ -44,27 +44,27 @@ RSpec.describe LinkedList do
         expect(list.to_string).to eq("yup")
     end
 
-    it 'can have multiple nodes' do
-        list = LinkedList.new
-        list.append("yup")
-        list.append("cup")
+    # it 'can have multiple nodes' do
+    #     list = LinkedList.new
+    #     list.append("yup")
+    #     list.append("cup")
 
-        expect(list.head.next_node).to eq(list.append("cup"))
-    end
+    #     expect(list).to eq(list.head.next_node)
+    # end
 
     it 'the next node is in the list and stores data' do
         list = LinkedList.new
         list.append("yup")
         list.append("cup")
-
-        expect(list.head.next_node).to eq(list.append("cup"))
+        # binding.pry
+        expect(list.head.next_node.data).to eq("cup")
     end
 
     it 'can count linked list with multiple nodes' do 
         list = LinkedList.new
         list.append("yup")
         list.append("cup")
-
+        # binding.pry
         expect(list.count).to eq(2)
     end
 

@@ -1,32 +1,33 @@
 class LinkedList
     attr_reader :head
+    
 
     def initialize
         @head = nil
     end
 
     def append(string)
+        new_node = Node.new(string)
         if @head == nil
-            @head = Node.new(string)
-        else
-            last_node = @head
-            until last_node.next_node == nil do
-                last_node = last_node.next_node
-            end
+            @head = new_node
+        else # put a pry in else block; where does data get lost; what is the return value
+            current = @head
+            current = current.next_node while current.next_node
+            current.next_node = new_node
         end
     end
 
     def count
         current = @head
-        counter = 1
+        counter = 0
 
-        if current.next_node == nil
+        if current == nil
             counter = 0
-        end
-
-        while current
-            counter += 1
-            current = current.next_node
+        else
+            until current == nil do
+                current = current.next_node
+                counter += 1
+            end
         end
         counter
     end
