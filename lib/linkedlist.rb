@@ -35,14 +35,13 @@ class LinkedList
 
     def to_string
         current = @head.data
-
+        string = " "
         if current == nil
-            " "
+            string << current
         else
-            current = @head
+            current = @head.data
             until current == nil do
-                current = current.next_node
-                ""
+                string << current
             end
         end
         string
