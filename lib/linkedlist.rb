@@ -9,15 +9,20 @@ class LinkedList
         if @head == nil
             @head = Node.new(string)
         else
-            current = @head
-            current = current.next_node 
-            current = Node.new(string)
+            last_node = @head
+            until last_node.next_node == nil do
+                last_node = last_node.next_node
+            end
         end
     end
 
     def count
         current = @head
-        counter = 0
+        counter = 1
+
+        if current.next_node == nil
+            counter = 0
+        end
 
         while current
             counter += 1

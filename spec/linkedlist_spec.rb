@@ -51,4 +51,28 @@ RSpec.describe LinkedList do
 
         expect(list.head.next_node).to eq(list.append("cup"))
     end
+
+    it 'the next node is in the list and stores data' do
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+
+        expect(list.head.next_node).to eq(list.append("cup"))
+    end
+
+    it 'can count linked list with multiple nodes' do 
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+
+        expect(list.count).to eq(2)
+    end
+
+    xit 'can covert nodes to strings' do
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+
+        expect(list.to_string).to eq("yup cup")
+    end
 end
