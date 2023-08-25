@@ -1,6 +1,6 @@
 require 'rspec'
 require "../lib/node"
-
+require 'pry'
 RSpec.describe Node do
     it 'exists' do
         node = Node.new("plop")
@@ -18,5 +18,6 @@ RSpec.describe Node do
         node = Node.new("plop")
 
         expect(node.next_node).to eq(nil)
+        binding.pry
     end
 end
