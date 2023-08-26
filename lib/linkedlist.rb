@@ -22,9 +22,8 @@ class LinkedList
         if @head == nil
             @head = new_node
         else
-            old_head = @head
-            @head = Node.new(string)
-            @head.next_node = old_head
+            new_node.next_node = @head
+            @head = new_node
         end
     end
 
@@ -51,7 +50,6 @@ class LinkedList
     def count
         current = @head
         counter = 0
-
         if current == nil
             counter = 0
         else
@@ -78,5 +76,12 @@ class LinkedList
             end
         end
         string.strip
+    end
+
+    def find(index, elements)
+
+        if count == 0
+            "This is an empty list"
+        end
     end
 end

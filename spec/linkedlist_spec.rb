@@ -100,7 +100,7 @@ RSpec.describe LinkedList do
         list.insert(9, "nope") # smoke test: index too high
         expect(list.insert(9, "nope")).to eq("Index too high")
 
-        list.insert(0, "head?")
+        list.insert(0, "head?") # smoke test: can be the head
         expect(list.head.data).to eq("head?")
     end
 end
