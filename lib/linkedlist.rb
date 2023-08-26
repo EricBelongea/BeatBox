@@ -34,7 +34,7 @@ class LinkedList
             new_node.next_node = @head
             @head = new_node
         elsif index > count
-            "Index too high"
+            "index too high"
         else
             current = @head
             counter = 1 
@@ -79,9 +79,19 @@ class LinkedList
     end
 
     def find(index, elements)
-
         if count == 0
             "This is an empty list"
+        elsif count < index
+            "index too high"
+        else
+            current = @head
+            counter = 1
+            string = ""
+            until counter == index do  
+                current = current.next_node
+                counter += 1
+            end
         end
+        string.strip
     end
 end

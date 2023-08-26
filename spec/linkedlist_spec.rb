@@ -98,9 +98,21 @@ RSpec.describe LinkedList do
         expect(list.to_string).to eq("yup pup cup tup")
 
         list.insert(9, "nope") # smoke test: index too high
-        expect(list.insert(9, "nope")).to eq("Index too high")
+        expect(list.insert(9, "nope")).to eq("index too high")
 
         list.insert(0, "head?") # smoke test: can be the head
         expect(list.head.data).to eq("head?")
+    end
+
+    it 'find index and number of nodes' do
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+        list.append("bup")
+        list.append("dup")
+        list.append("gup")
+
+        expect(list.find(1,2)).to eq("cup bup")
+        
     end
 end
