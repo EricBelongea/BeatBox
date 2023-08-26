@@ -81,7 +81,17 @@ RSpec.describe LinkedList do
         list.append("yup")
         list.append("cup")
         list.prepend("pup")
-        binding.pry
+        
         expect(list.to_string).to eq("pup yup cup")
+        expect(list.count).to eq(3)
+    end
+
+    it 'count to three' do
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+
+        list.insert(1, "pup")
+        expect(list.to_string).to eq("yup pup cup")
     end
 end

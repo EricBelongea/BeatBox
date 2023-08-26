@@ -23,8 +23,8 @@ class LinkedList
             @head = new_node
         else
             old_head = @head
-            new_node = @head
-            new_node.next_node =old_head
+            @head = Node.new(string)
+            @head.next_node = old_head
         end
 
     end
@@ -61,16 +61,3 @@ class LinkedList
         string.strip
     end
 end
-
-
- # current = @head
-        # string = " "
-        # if current == nil
-            
-        # else
-        #     current = @head
-        #     require 'pry';binding.pry
-        #     until current.next_node == nil do
-        #         string = current  
-        #     end
-        # end
