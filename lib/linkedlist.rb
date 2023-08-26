@@ -34,16 +34,31 @@ class LinkedList
     end
 
     def to_string
-        current = @head.data
-        string = " "
+        current = @head
+        string = ""
+        # require 'pry';binding.pry
         if current == nil
-            string << current
+            "There's no head"
         else
-            current = @head.data
+            # current = @head
             until current == nil do
-                string << current
+                string += "#{current.data} "
+                current = current.next_node
             end
         end
-        string
+        string.strip
     end
 end
+
+
+ # current = @head
+        # string = " "
+        # if current == nil
+            
+        # else
+        #     current = @head
+        #     require 'pry';binding.pry
+        #     until current.next_node == nil do
+        #         string = current  
+        #     end
+        # end
