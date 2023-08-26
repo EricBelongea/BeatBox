@@ -26,7 +26,26 @@ class LinkedList
             @head = Node.new(string)
             @head.next_node = old_head
         end
+    end
 
+    def insert(index, string)
+        new_node = Node.new(string)
+
+        if index == 0
+            new_node.next_node = @head
+            @head = new_node
+        elsif index > count
+            "Index too high"
+        else
+            current = @head
+            counter = 1 
+            until counter >= index do
+                current = current.next_node
+                counter += 1
+            end
+            new_node.next_node = current.next_node
+            current.next_node = new_node
+        end
     end
 
     def count

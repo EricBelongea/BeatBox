@@ -86,12 +86,21 @@ RSpec.describe LinkedList do
         expect(list.count).to eq(3)
     end
 
-    it 'count to three' do
+    it 'can insert based on index' do
         list = LinkedList.new
         list.append("yup")
         list.append("cup")
 
         list.insert(1, "pup")
         expect(list.to_string).to eq("yup pup cup")
+
+        list.insert(3, "tup") # smoke test: can add to end of list
+        expect(list.to_string).to eq("yup pup cup tup")
+
+        list.insert(9, "nope") # smoke test: index too high
+        expect(list.insert(9, "nope")).to eq("Index too high")
+
+        list.insert(0, "head?")
+        expect(list.head.data).to eq("head?")
     end
 end
