@@ -17,6 +17,18 @@ class LinkedList
         end
     end
 
+    def prepend(string)
+        new_node = Node.new(string)
+        if @head == nil
+            @head = new_node
+        else
+            old_head = @head
+            new_node = @head
+            new_node.next_node =old_head
+        end
+
+    end
+
     def count
         current = @head
         counter = 0

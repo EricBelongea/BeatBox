@@ -75,4 +75,13 @@ RSpec.describe LinkedList do
         # binding.pry 
         expect(list.to_string).to eq("yup cup")
     end
+
+    it 'can perpend' do
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+        list.prepend("pup")
+        binding.pry
+        expect(list.to_string).to eq("pup yup cup")
+    end
 end
