@@ -1,7 +1,5 @@
 class LinkedList
     attr_reader :head
-    
-
     def initialize
         @head = nil
     end
@@ -29,7 +27,6 @@ class LinkedList
 
     def insert(index, string)
         new_node = Node.new(string)
-
         if index == 0
             new_node.next_node = @head
             @head = new_node
@@ -79,15 +76,16 @@ class LinkedList
     end
 
     def find(index, elements)
+        current = @head
+        string = ""
+        counter = 1
         if count == 0
             "This is an empty list"
         elsif count < index
             "index too high"
         else
-            current = @head
-            counter = 1
-            string = ""
-            until counter == index do  
+            until counter > index + elements  
+                string += "#{current.data} " if counter > index
                 current = current.next_node
                 counter += 1
             end

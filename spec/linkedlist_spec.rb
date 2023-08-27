@@ -113,6 +113,6 @@ RSpec.describe LinkedList do
         list.append("gup")
 
         expect(list.find(1,2)).to eq("cup bup")
-        
+        expect(list.find(2,3)).to eq("bup dup gup")
     end
 end
