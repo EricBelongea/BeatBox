@@ -3,9 +3,10 @@ class LinkedList
     def initialize
         @head = nil
     end
-
+    
     def append(string)
         new_node = Node.new(string)
+
         if @head == nil
             @head = new_node
         else # put a pry in else block; where does data get lost; what is the return value
@@ -117,7 +118,7 @@ class LinkedList
         else
             current = @head
             prev_node = nil
-            
+
             until current.next_node == nil
                 current = current.next_node
             end
