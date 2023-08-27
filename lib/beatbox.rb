@@ -25,20 +25,9 @@ class Beatbox
         end
         counter
     end
-    # def append(string)
-    #     # list = LinkedList.new
-    #     new_string = string.split
-    #     new_string.each do |word|
-    #         new_node = Node.new(word)
-    #         if @head == nil
-    #             @head = new_node
-    #         else
-    #             current = @list.head
-    #             until current.next_node == nil
-    #                 current = current.next_node
-    #             end
-    #             current.next_node = new_node
-    #         end
-    #     end
-    # end
+   
+    def play
+        beats = @list.to_string
+        `say -r 250 "#{beats}"`
+    end
 end
