@@ -10,7 +10,9 @@ class LinkedList
             @head = new_node
         else # put a pry in else block; where does data get lost; what is the return value
             current = @head
-            current = current.next_node while current.next_node
+            until current.next_node == nil
+                current = current.next_node
+            end
             current.next_node = new_node
         end
     end
@@ -35,7 +37,7 @@ class LinkedList
         else
             current = @head
             counter = 1 
-            until counter >= index do
+            until counter >= index
                 current = current.next_node
                 counter += 1
             end
@@ -50,10 +52,10 @@ class LinkedList
         if current == nil
             counter = 0
         else
-            current = @head
-            until current == nil do
-                current = current.next_node
+            counter += 1
+            until current.next_node == nil
                 counter += 1
+                current = current.next_node
             end
         end
         counter
@@ -67,7 +69,7 @@ class LinkedList
             "There's no head"
         else
             # current = @head
-            until current == nil do
+            until current == nil
                 string += "#{current.data} "
                 current = current.next_node
             end
@@ -105,6 +107,28 @@ class LinkedList
                 current = current.next_node
             end
             false
+        end
+    end
+
+    def pop
+        current = @head
+        if @head == nil
+            "This is an empty list"
+        else
+            current = @head
+            prev_node = nil
+            
+            until current.next_node == nil
+                current = current.next_node
+            end
+            prev_node = current
+            
+            current = @head
+            until current.next_node == prev_node
+                current = current.next_node
+            end
+            current.next_node = nil
+            prev_node.data
         end
     end
 end

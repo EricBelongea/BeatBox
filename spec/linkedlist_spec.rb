@@ -64,8 +64,10 @@ RSpec.describe LinkedList do
         list = LinkedList.new
         list.append("yup")
         list.append("cup")
+        list.append("cup")
+        list.append("cup")
         # binding.pry
-        expect(list.count).to eq(2)
+        expect(list.count).to eq(4)
     end
 
     it 'can covert nodes to strings' do
@@ -127,5 +129,15 @@ RSpec.describe LinkedList do
         expect(list.includes?("yup")).to be true
         expect(list.includes?("bup")).to be true
         expect(list.includes?("trouble?")).to be false
+    end
+
+    it 'can remove the last node via .pop and return its value' do
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+        list.append("bup")
+
+        expect(list.pop).to eq("bup")
+        expect(list.to_string).to eq("yup cup")
     end
 end
