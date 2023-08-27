@@ -114,5 +114,18 @@ RSpec.describe LinkedList do
 
         expect(list.find(1,2)).to eq("cup bup")
         expect(list.find(2,3)).to eq("bup dup gup")
+        expect(list.find(0,1)).to eq("yup") #smoke test: can call head
+        # expect(list.find(9,4)).to eq("index too high") #smoke test:
+    end
+
+    it 'has an include? method' do
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+        list.append("bup")
+
+        expect(list.includes?("yup")).to be true
+        expect(list.includes?("bup")).to be true
+        expect(list.includes?("trouble?")).to be false
     end
 end

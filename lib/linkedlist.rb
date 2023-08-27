@@ -75,13 +75,14 @@ class LinkedList
         string.strip
     end
 
+    # Doesn't work for when index is higher than count.
     def find(index, elements)
         current = @head
         string = ""
         counter = 1
-        if count == 0
+        if index > count
             "This is an empty list"
-        elsif count < index
+        elsif count == 0
             "index too high"
         else
             until counter > index + elements  
@@ -91,5 +92,19 @@ class LinkedList
             end
         end
         string.strip
+    end
+
+    def includes?(string)
+        current = @head
+        if @head == nil
+            "This is an empty list"
+        else
+            current = @head
+            while current
+                return true if current.data == string
+                current = current.next_node
+            end
+            false
+        end
     end
 end
