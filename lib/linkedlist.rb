@@ -46,6 +46,24 @@ class LinkedList
             current.next_node = new_node
         end
     end
+    # Doesn't work for when index is higher than count.
+    def find(index, elements)
+        current = @head
+        string = ""
+        counter = 1
+        if count == 0
+            return "This is an empty list"
+        elsif index > count
+            return "index too high"
+        else
+            until counter > index + elements  
+                string += "#{current.data} " if counter > index
+                current = current.next_node
+                counter += 1
+            end
+        end
+        string.strip
+    end
 
     def count
         current = @head
@@ -73,25 +91,6 @@ class LinkedList
             until current == nil
                 string += "#{current.data} "
                 current = current.next_node
-            end
-        end
-        string.strip
-    end
-
-    # Doesn't work for when index is higher than count.
-    def find(index, elements)
-        current = @head
-        string = ""
-        counter = 1
-        if index > count
-            "This is an empty list"
-        elsif count == 0
-            "index too high"
-        else
-            until counter > index + elements  
-                string += "#{current.data} " if counter > index
-                current = current.next_node
-                counter += 1
             end
         end
         string.strip

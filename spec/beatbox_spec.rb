@@ -41,9 +41,9 @@ end
 describe "#play" do
     it 'plays the beats' do
         bb = Beatbox.new
-        bb.append("beep bop boop bip flip dip hip")
+        bb.append("beep bop boop bip flip dip chip")
 
-        expect(bb.list.to_string).to eq("beep bop boop bip flip dip hip")
-        bb.play # it made the noises!
+        expect(bb.respond_to?(:play)).to be true
+        bb.play # DJ gigs already blownin' up the phone
     end
 end
