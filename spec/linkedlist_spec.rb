@@ -14,8 +14,16 @@ RSpec.describe LinkedList do
 
         expect(list.head).to eq(nil)
     end
+end
 
-    it 'can append AND has a head' do
+describe "#append" do
+    it 'has a head equal to nil' do
+        list = LinkedList.new
+
+        expect(list.head).to eq(nil)
+    end
+
+    it 'can append data to head' do
         list = LinkedList.new
         list.append("yup")
 
@@ -29,14 +37,43 @@ RSpec.describe LinkedList do
         expect(list.head.next_node).to eq(nil)
     end
 
-    it 'can count the amount of nodes' do
+    it "appends next node and stores data" do
         list = LinkedList.new
         list.append("yup")
-        # list.append("zip")
-        # binding.pry
+        list.append("cup")
+
+        expect(list.head.next_node.data).to eq("cup")
+    end
+end
+
+describe "#count" do
+    it 'can count a node' do
+        list = LinkedList.new
+        list.append("yup")
+        
         expect(list.count).to eq(1)
     end
 
+    it "can count multiple nodes" do
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+
+        expect(list.count).to eq(2)
+    end
+
+    it 'can count linked list with multiple nodes' do 
+        list = LinkedList.new
+        list.append("yup")
+        list.append("cup")
+        list.append("pup")
+        list.append("tup")
+        
+        expect(list.count).to eq(4)
+    end
+end
+
+describe "#to_string" do
     it 'coverts the nodes to strings' do
         list = LinkedList.new
         list.append("yup")
@@ -44,40 +81,19 @@ RSpec.describe LinkedList do
         expect(list.to_string).to eq("yup")
     end
 
-    # it 'can have multiple nodes' do
-    #     list = LinkedList.new
-    #     list.append("yup")
-    #     list.append("cup")
-
-    #     expect(list).to eq(list.head.next_node)
-    # end
-
-    it 'the next node is in the list and stores data' do
+    it 'can convert multiple nodes to a string' do
         list = LinkedList.new
         list.append("yup")
         list.append("cup")
-        # binding.pry
-        expect(list.head.next_node.data).to eq("cup")
-    end
 
-    it 'can count linked list with multiple nodes' do 
-        list = LinkedList.new
-        list.append("yup")
-        list.append("cup")
-        list.append("cup")
-        list.append("cup")
-        # binding.pry
-        expect(list.count).to eq(4)
-    end
-
-    it 'can covert nodes to strings' do
-        list = LinkedList.new
-        list.append("yup")
-        list.append("cup")
-        # binding.pry 
         expect(list.to_string).to eq("yup cup")
-    end
 
+        list.append("pup")
+        expect(list.to_string).to eq("yup cup pup")
+    end
+end
+
+describe "#prepend" do
     it 'can perpend' do
         list = LinkedList.new
         list.append("yup")
@@ -87,7 +103,9 @@ RSpec.describe LinkedList do
         expect(list.to_string).to eq("pup yup cup")
         expect(list.count).to eq(3)
     end
+end
 
+describe "#insert" do
     it 'can insert based on index' do
         list = LinkedList.new
         list.append("yup")
@@ -105,7 +123,9 @@ RSpec.describe LinkedList do
         list.insert(0, "head?") # smoke test: can be the head
         expect(list.head.data).to eq("head?")
     end
+end
 
+describe "#find" do
     it 'find index and number of nodes' do
         list = LinkedList.new
         list.append("yup")
@@ -119,7 +139,9 @@ RSpec.describe LinkedList do
         expect(list.find(0,1)).to eq("yup") #smoke test: can call head
         # expect(list.find(9,4)).to eq("index too high") #smoke test:
     end
+end
 
+describe "#includes?" do 
     it 'has an include? method' do
         list = LinkedList.new
         list.append("yup")
@@ -130,7 +152,9 @@ RSpec.describe LinkedList do
         expect(list.includes?("bup")).to be true
         expect(list.includes?("trouble?")).to be false
     end
+end
 
+describe "#pop" do
     it 'can remove the last node via .pop and return its value' do
         list = LinkedList.new
         list.append("yup")

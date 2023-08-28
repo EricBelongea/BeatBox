@@ -28,6 +28,6 @@ class Beatbox
    
     def play
         beats = @list.to_string
-        `say -r 250 "#{beats}"`
+        `say -r 250 -v Boing "#{beats}"`
     end
 end
