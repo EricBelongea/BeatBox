@@ -20,6 +20,7 @@ RSpec.describe Beatbox do
         expect(bb.list.head.data).to eq("deep")
     end
 end
+
 describe "#append" do
     it 'can append mutliple nodes' do 
         bb = Beatbox.new
@@ -30,6 +31,7 @@ describe "#append" do
         expect(bb.list.head.next_node.data).to eq("doop")
     end
 end
+
 describe "#count" do
     it 'can count bb nodes' do
         bb = Beatbox.new
@@ -39,6 +41,7 @@ describe "#count" do
         expect(bb.count).to eq(3)
     end
 end
+
 describe "#play" do
     it 'plays the beats' do
         bb = Beatbox.new
@@ -75,5 +78,53 @@ describe "#prepend" do
         bb = Beatbox.new("boop deep beep")
 
         expect(bb.all).to eq("boop deep beep")
+    end
+end
+
+describe "#rates" do
+    it 'adjust the rate and reset the rate' do
+        bb = Beatbox.new("boop beep deep doop")
+
+        bb.rate = 200
+        expect(bb.rate).to eq(200)
+    end
+
+    it 'rate can be reset' do
+        bb = Beatbox.new("boop beep deep doop")
+
+        bb.reset_rate
+        expect(bb.rate).to eq(500)
+    end
+end
+
+describe "#voice" do
+    it 'voice can be changed' do
+        bb = Beatbox.new("boop beep deep doop")
+
+        bb.voice = "Daniel"
+
+        expect(bb.voice).to eq("Daniel")
+    end
+
+    it "can reset the voice" do
+        bb = Beatbox.new("boop beep deep doop")
+
+        bb.reset_voice
+
+        expect(bb.voice).to eq("Boing")
+    end
+end
+
+describe "#theVibe" do
+    it 'is a banger' do
+        bb = Beatbox.new
+
+        bb.append("dum dah dum dum what it do how it be i love coding with you with me now its time for ice cream ice cream")
+        
+        bb.rate = 75
+        bb.voice = "Cello"
+        
+        expect(bb.respond_to?(:play)).to be true
+        bb.play
     end
 end
