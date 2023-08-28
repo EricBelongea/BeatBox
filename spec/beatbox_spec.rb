@@ -10,18 +10,19 @@ RSpec.describe Beatbox do
     end
     it 'has a LinkedList' do
         bb = Beatbox.new
-        # list = LinkedList.new
-
-
-        # require 'pry';binding.pry
+    
         expect(bb.list).to be_instance_of(LinkedList)
         expect(bb.list.head).to eq(nil)
+    end
+    it "can take a parameter" do
+        bb = Beatbox.new("deep")
+
+        expect(bb.list.head.data).to eq("deep")
     end
 end
 describe "#append" do
     it 'can append mutliple nodes' do 
         bb = Beatbox.new
-        # require 'pry';binding.pry
         bb.append("deep doop ditt")
 
         expect(bb.list.to_string).to eq("deep doop ditt")
@@ -44,6 +45,15 @@ describe "#play" do
         bb.append("beep bop boop bip flip dip chip")
 
         expect(bb.respond_to?(:play)).to be true
-        bb.play # DJ gigs already blownin' up the phone
+        # bb.play # DJ gigs already blownin' up the phone
+    end
+end
+
+describe "#validate" do
+    xit "can filter appropriate sounds" do
+        bb = Beatbox.new("deep")
+        bb.append("missippi")
+
+        expect(bb.to_string).to eq("deep")
     end
 end

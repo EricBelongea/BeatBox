@@ -9,7 +9,7 @@ class LinkedList
 
         if @head == nil
             @head = new_node
-        else # put a pry in else block; where does data get lost; what is the return value
+        else 
             current = @head
             until current.next_node == nil
                 current = current.next_node
@@ -46,7 +46,7 @@ class LinkedList
             current.next_node = new_node
         end
     end
-    # Doesn't work for when index is higher than count.
+    
     def find(index, elements)
         current = @head
         string = ""
@@ -83,11 +83,9 @@ class LinkedList
     def to_string
         current = @head
         string = ""
-        # require 'pry';binding.pry
         if current == nil
             "There's no head"
         else
-            # current = @head
             until current == nil
                 string += "#{current.data} "
                 current = current.next_node
