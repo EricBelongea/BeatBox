@@ -219,5 +219,14 @@ describe "#pop" do
         list.pop
         expect(list.pop).to eq("cup")
     end
-
 end
+
+# describe "#valid_beats" do
+#     it "will filter out beats" do
+#         list = LinkedList.new
+#         list.append("cup")
+#         list.append("missippi")
+
+#         expect(list.to_string).to eq("cup")
+#     end
+# end

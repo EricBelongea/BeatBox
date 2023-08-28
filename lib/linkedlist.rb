@@ -6,7 +6,6 @@ class LinkedList
     
     def append(string)
         new_node = Node.new(string)
-
         if @head == nil
             @head = new_node
         else 

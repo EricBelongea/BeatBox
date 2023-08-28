@@ -50,10 +50,22 @@ describe "#play" do
 end
 
 describe "#validate" do
-    xit "can filter appropriate sounds" do
+    it "can filter appropriate sounds" do
         bb = Beatbox.new("deep")
         bb.append("missippi")
 
-        expect(bb.to_string).to eq("deep")
+        expect(bb.list.to_string).to eq("deep")
+    end
+end
+
+describe "#all" do
+    it 'lists all nodes in one string' do
+        bb = Beatbox.new("beep")
+        bb.append("boop")
+        bb.append("deep")
+        bb.append("doop")
+        bb.append("coup")
+
+        expect(bb.all).to eq("beep boop deep doop coup")
     end
 end
