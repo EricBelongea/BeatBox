@@ -3,6 +3,8 @@ class Beatbox
     def initialize(data = nil)
         @list = LinkedList.new
         @list.append(data) if data != nil
+        @rate = 500
+        @voice = "Boing"
     end
    
     def append(string)
@@ -28,6 +30,14 @@ class Beatbox
 
     def count
         @list.count
+    end
+
+    def reset_rate
+        @rate = 500
+    end
+
+    def reset_voice
+        @voice = "Boing"
     end
    
     def play

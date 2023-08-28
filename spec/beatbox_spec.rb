@@ -69,3 +69,11 @@ describe "#all" do
         expect(bb.all).to eq("beep boop deep doop coup")
     end
 end
+
+describe "#prepend" do
+    it 'can prepend multiple nodes' do
+        bb = Beatbox.new("boop deep beep")
+
+        expect(bb.all).to eq("boop deep beep")
+    end
+end
