@@ -9,7 +9,7 @@ RSpec.describe LinkedList do
         expect(list).to be_instance_of(LinkedList)
     end
 
-    it 'has an empty head' do 
+    it 'has a head equal to nil' do 
         list = LinkedList.new
 
         expect(list.head).to eq(nil)
@@ -17,12 +17,6 @@ RSpec.describe LinkedList do
 end
 
 describe "#append" do
-    it 'has a head equal to nil' do
-        list = LinkedList.new
-
-        expect(list.head).to eq(nil)
-    end
-
     it 'can append data to head' do
         list = LinkedList.new
         list.append("yup")
@@ -74,7 +68,7 @@ describe "#count" do
 end
 
 describe "#to_string" do
-    it 'coverts the nodes to strings' do
+    it 'coverts the nodes data to string' do
         list = LinkedList.new
         list.append("yup")
 
@@ -110,9 +104,10 @@ describe "#insert" do
         list = LinkedList.new
         list.append("yup")
         list.append("cup")
+        list.append("sup")
 
         list.insert(1, "pup")
-        expect(list.to_string).to eq("yup pup cup")   
+        expect(list.to_string).to eq("yup pup cup sup")   
     end
 
     it "can insert to end of list" do
@@ -220,13 +215,3 @@ describe "#pop" do
         expect(list.pop).to eq("cup")
     end
 end
-
-# describe "#valid_beats" do
-#     it "will filter out beats" do
-#         list = LinkedList.new
-#         list.append("cup")
-#         list.append("missippi")
-
-#         expect(list.to_string).to eq("cup")
-#     end
-# end

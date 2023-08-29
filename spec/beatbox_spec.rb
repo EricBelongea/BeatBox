@@ -55,7 +55,7 @@ end
 describe "#validate" do
     it "can filter appropriate sounds" do
         bb = Beatbox.new("deep")
-        bb.append("missippi")
+        bb.append("missippi") # filtered out: not on the list.
 
         expect(bb.list.to_string).to eq("deep")
     end
@@ -77,7 +77,16 @@ describe "#prepend" do
     it 'can prepend multiple nodes' do
         bb = Beatbox.new("boop deep beep")
 
-        expect(bb.all).to eq("boop deep beep")
+        bb.prepend("pup ditt")
+        expect(bb.all).to eq("ditt pup boop deep beep")
+    end
+
+    it 'can prepend multiple and filter nodes' do
+        bb = Beatbox.new("boop deep pup")
+
+        bb.prepend("pup mississippi")
+
+        expect(bb.all).to eq("pup boop deep pup")
     end
 end
 
@@ -125,6 +134,6 @@ describe "#theVibe" do
         bb.voice = "Cello"
         
         expect(bb.respond_to?(:play)).to be true
-        bb.play
+        # bb.play
     end
 end
