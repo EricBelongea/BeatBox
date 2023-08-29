@@ -125,7 +125,7 @@ describe "#voice" do
 end
 
 describe "#theVibe" do
-    it 'is a banger' do
+    it 'it sings' do
         bb = Beatbox.new
 
         bb.append("dum dah dum dum what it do how it be i love coding with you with me now its time for ice cream ice cream")
@@ -134,6 +134,8 @@ describe "#theVibe" do
         bb.voice = "Cello"
         
         expect(bb.respond_to?(:play)).to be true
-        # bb.play
+        bb.play
     end
+
+    # it 'is a beat' do
 end
